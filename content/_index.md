@@ -3,7 +3,7 @@ title: "Aether"
 layout: landing
 description: "A self-hosted music server with a web player and an OpenSubsonic API"
 # Hero copy and screenshot (layouts/landing.html). Screenshots are dropped in
-# assets/screenshots/ under the name given here — see site/README.md. The
+# assets/screenshots/ under the name given here — see README.md. The
 # notice is markdown, next to a "Pre-release" pill.
 tagline: "Self-host your music. Listen anywhere."
 notice: "Under active development. [More details](/docs/about/pre-release.md)"

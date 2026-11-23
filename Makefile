@@ -1,6 +1,5 @@
-# Website targets (Hugo + the hugo-book theme module). The root Makefile
-# delegates its site-* targets here. Needs Hugo extended >= 0.146 and Go, which
-# Hugo uses to fetch the theme module.
+# Website targets (Hugo + the hugo-book theme module). Needs Hugo extended
+# >= 0.146 and Go, which Hugo uses to fetch the theme module.
 
 THEME := github.com/alex-shpak/hugo-book
 
@@ -10,7 +9,7 @@ default: help
 ##@ Running
 #==========================================================================================
 PORT ?= 1313
-serve: ## serve the site with live reload on http://localhost:1313/aether/ (PORT=1414 to change)
+serve: ## serve the site with live reload on http://localhost:1313/ (PORT=1414 to change)
 	@hugo server --port $(PORT)
 
 #==========================================================================================

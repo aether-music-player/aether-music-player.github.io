@@ -17,7 +17,7 @@ Aether is a single program with the web player built in: point it at your music,
      -e AETHER_AUTH_ADMINBOOTSTRAP_PW='change-me' \
      -v aether-data:/var/lib/aether \
      -v /path/to/music:/music:ro \
-     ghcr.io/andresbott/aether:latest
+     ghcr.io/aether-music-player/aether-server:latest
    ```
 
    The image scans whatever you mount at `/music`.
@@ -25,7 +25,7 @@ Aether is a single program with the web player built in: point it at your music,
 2. Open <http://localhost:8075> and sign in as `admin` with the password above.
 {{% /tab %}}
 {{% tab "Binary" %}}
-1. Download the zip for your system from the [latest release](https://github.com/andresbott/aether/releases/latest) and unzip it.
+1. Download the zip for your system from the [latest release](https://github.com/aether-music-player/aether-server/releases/latest) and unzip it.
 
 2. Next to the binary, create a `config.yaml` that lists your music folder:
 

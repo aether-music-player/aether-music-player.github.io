@@ -10,7 +10,7 @@ aliases:
 
 Aether has no stable release yet. Until it does, any new version may change the configuration file or the database, with no migration from what an older version left behind:
 
-- **Configuration.** Options can be renamed, moved or removed. After an upgrade, compare your config with the [packaged config](https://github.com/andresbott/aether/blob/main/server/zarf/packaging/config.yaml) of the new version.
+- **Configuration.** Options can be renamed, moved or removed. After an upgrade, compare your config with the [packaged config](https://github.com/aether-music-player/aether-server/blob/main/zarf/packaging/config.yaml) of the new version.
 - **Database.** A new version may not work with an older version's database. The way out is an empty data directory and a fresh scan.
 - **Scans.** Keeping your database across an upgrade can call for one Full Catalog Scan, see [After an upgrade](/docs/guides/scanning.md#after-an-upgrade).
 

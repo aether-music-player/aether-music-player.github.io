@@ -5,7 +5,7 @@ weight: 20
 
 # Configuration
 
-Aether reads one YAML file. Every option is annotated in the [packaged config](https://github.com/andresbott/aether/blob/main/server/zarf/packaging/config.yaml); this page covers the ones you will touch.
+Aether reads one YAML file. Every option is annotated in the [packaged config](https://github.com/aether-music-player/aether-server/blob/main/zarf/packaging/config.yaml); this page covers the ones you will touch.
 
 ## Where the config comes from
 

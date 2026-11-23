@@ -1,4 +1,4 @@
-module github.com/andresbott/aether/site
+module github.com/aether-music-player/aether-music-player.github.io
 
 go 1.22
 

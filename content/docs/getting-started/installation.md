@@ -5,12 +5,12 @@ weight: 10
 
 # Installation
 
-Every [release](https://github.com/andresbott/aether/releases/latest) ships:
+Every [release](https://github.com/aether-music-player/aether-server/releases/latest) ships:
 
 | Download | For |
 |---|---|
 | `aether_<version>_linux_amd64_v1.deb`, `…_amd64_v3.deb`, `…_linux_arm64.deb` | Debian, Ubuntu and derivatives |
-| `ghcr.io/andresbott/aether` | Docker / Podman, amd64 and arm64 |
+| `ghcr.io/aether-music-player/aether-server` | Docker / Podman, amd64 and arm64 |
 | `aether_Linux_*.zip`, `aether_Windows_*.zip`, `aether_Darwin_*.zip` | the plain binary, any other system |
 | `aether-spa.zip` | the web UI on its own (rarely needed, see below) |
 
@@ -56,7 +56,7 @@ docker run -d --name aether -p 8075:8075 \
   -e AETHER_AUTH_ADMINBOOTSTRAP_PW='change-me' \
   -v aether-data:/var/lib/aether \
   -v /path/to/music:/music:ro \
-  ghcr.io/andresbott/aether:latest
+  ghcr.io/aether-music-player/aether-server:latest
 ```
 
 The image scans `/music` and has authentication on: sign in as `admin` with the password from `AETHER_AUTH_ADMINBOOTSTRAP_PW`, which is read on the first start only. `ffmpeg` and `chromaprint` are included.
@@ -67,7 +67,7 @@ The image scans `/music` and has authentication on: sign in as `admin` with the 
 
 ## Plain binary
 
-Unzip the archive for your system, put a `config.yaml` next to the binary (start from the [packaged one](https://github.com/andresbott/aether/blob/main/server/zarf/packaging/config.yaml)) and start it:
+Unzip the archive for your system, put a `config.yaml` next to the binary (start from the [packaged one](https://github.com/aether-music-player/aether-server/blob/main/zarf/packaging/config.yaml)) and start it:
 
 ```sh
 ./aether start

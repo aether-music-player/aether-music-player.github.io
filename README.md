@@ -2,26 +2,26 @@
 
 The public site — landing page and user documentation — built with
 [Hugo](https://gohugo.io) and the [hugo-book](https://github.com/alex-shpak/hugo-book)
-theme, published to GitHub Pages by `.github/workflows/site.yml` on every
-stable release.
+theme, published to GitHub Pages at <https://aether-music-player.github.io/>
+by `.github/workflows/deploy.yml` on every push to `main`.
 
-Internal and agent docs stay in `/docs`; this directory is only what users read.
+Internal and agent docs stay in the server repo
+([aether-server](https://github.com/aether-music-player/aether-server)'s
+`docs/`); this repo is only what users read. Merge a page describing a new
+feature once the release that ships it is out.
 
 ## Run it locally
 
 Needs Hugo **extended** ≥ 0.146 and Go (Hugo fetches the theme as a module).
-From this directory (`make help` lists everything):
+From the repo root (`make help` lists everything):
 
 ```sh
-make serve                          # live reload on http://localhost:1313/aether/
+make serve                          # live reload on http://localhost:1313/
 make check                          # does it build? catches links to missing pages
 make build                          # what CI runs, output in public/
 make clean                          # drop public/ and Hugo's resource cache
 make new PAGE=docs/guides/my-page.md
 ```
-
-From the repo root, `make site-serve`, `make site-build` and `make site-check`
-do the same.
 
 ## Layout
 
@@ -39,9 +39,11 @@ do the same.
 | `archetypes/docs.md` | front matter for new pages (`make new`); named `docs` to override the theme's own |
 
 The look is the web UI's: `assets/_custom.scss` uses the same `--app-*` token
-names and values as `webui/src/assets/scss/_variables.scss` — change a colour
-there, change it here. The brand mark and favicon are mounted from `webui/`
-(see `hugo.toml`), so they never drift.
+names and values as aether-server's `webui/src/assets/scss/_variables.scss` —
+change a colour there, change it here. The brand mark (`static/mark.svg`) and
+favicon (`static/favicon.ico`) are copies of aether-server's
+`webui/src/assets/aether-mark.svg` and `webui/public/favicon.ico`; re-copy them
+when the artwork changes.
 
 ## Screenshots
 
@@ -90,12 +92,13 @@ The landing page's nav (`params.icon` on the `home` menu in `hugo.toml`) and
 highlights (`feature icon=`) name a file in `assets/icons/`, inlined by
 `layouts/_partials/icon.html`. They are the web UI's glyphs — Material Symbols,
 its filled Rounded style — copied from the web UI's icon package. To add one,
-from `webui/` (with `npm install` done):
+from aether-server's `webui/` (with `npm install` done; `SITE` is this repo's
+checkout):
 
 ```sh
 node -e 'const s = require("@iconify-json/material-symbols/icons.json"), n = process.argv[1];
   const i = s.icons[n + "-rounded"] ?? s.icons[s.aliases[n + "-rounded"]?.parent];
-  require("fs").writeFileSync(`../site/assets/icons/${n}.svg`,
+  require("fs").writeFileSync(`${process.env.SITE}/assets/icons/${n}.svg`,
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">${i.body}</svg>\n`)' menu-book
 ```
 
@@ -112,7 +115,7 @@ about 2 units of air on each side.
 - **Link to pages by file**: `[Libraries](/docs/guides/libraries.md)`, anchors
   included (`…/configuration.md#scan-folders`). The theme resolves them to the
   right URL and **fails the build on a missing page** (`BookPortableLinks`).
-  Do not hard-code `/aether/…` URLs.
+  Do not hard-code absolute site URLs.
 - **Callouts** are GitHub alerts, so they render on GitHub too:
 
   ```markdown

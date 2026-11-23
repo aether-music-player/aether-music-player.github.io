@@ -1,6 +1,6 @@
 // Aether theme, selected by BookTheme = 'aether' in hugo.toml: the web UI's
 // look on hugo-book. The --app-* tokens carry the same names and values as
-// webui/src/assets/scss/_variables.scss (and theme.js for the cyan scale), so
+// aether-server's webui/src/assets/scss/_variables.scss (and theme.js for the cyan scale), so
 // a palette change there is a search away here. Light and dark follow the OS
 // setting, like the theme's 'auto'.
 //
@@ -22,7 +22,7 @@
     U+FEFF, U+FFFD;
 }
 
-// The logo gradient (webui/public/icon.svg), for the feature tiles.
+// The logo gradient (aether-server's webui/public/icon.svg), for the feature tiles.
 $brand-gradient: linear-gradient(170deg, #72cfcc -10%, #102744 95%);
 
 @mixin aether-light {
